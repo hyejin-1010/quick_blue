@@ -14,7 +14,7 @@ class MethodChannelQuickBlue extends QuickBluePlatform {
   }
 
   @override
-  Future<bool> isBluetoothAvailable() => _method.invokeMethod('isBluetoothAvailable');
+  Future<bool?> isBluetoothAvailable() => _method.invokeMethod('isBluetoothAvailable');
 
   @override
   void startScan() {
@@ -54,7 +54,7 @@ class MethodChannelQuickBlue extends QuickBluePlatform {
     }).then((_) => print('discoverServices invokeMethod success'));
   }
 
-  Future<void> _handleConnectorMessage(dynamic message) {
+  Future<void> _handleConnectorMessage(dynamic message) async {
     print('_handleConnectorMessage $message');
     if (message['ConnectionState'] != null) {
       String deviceId = message['deviceId'];
@@ -80,7 +80,7 @@ class MethodChannelQuickBlue extends QuickBluePlatform {
   }
 
   @override
-  Future<void> setNotifiable(String deviceId, String service, String characteristic, BleInputProperty bleInputProperty) {
+  void setNotifiable(String deviceId, String service, String characteristic, BleInputProperty bleInputProperty) {
     _method.invokeMethod('setNotifiable', {
       'deviceId': deviceId,
       'service': service,
@@ -90,7 +90,7 @@ class MethodChannelQuickBlue extends QuickBluePlatform {
   }
 
   @override
-  Future<void> writeValue(String deviceId, String service, String characteristic, Uint8List value, BleOutputProperty bleOutputProperty) {
+  void writeValue(String deviceId, String service, String characteristic, Uint8List value, BleOutputProperty bleOutputProperty) {
     _method.invokeMethod('writeValue', {
       'deviceId': deviceId,
       'service': service,

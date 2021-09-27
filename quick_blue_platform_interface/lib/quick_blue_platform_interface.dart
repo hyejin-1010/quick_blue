@@ -30,7 +30,7 @@ abstract class QuickBluePlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<bool> isBluetoothAvailable();
+  Future<bool?> isBluetoothAvailable();
 
   void startScan();
 
@@ -42,17 +42,17 @@ abstract class QuickBluePlatform extends PlatformInterface {
 
   void disconnect(String deviceId);
 
-  OnConnectionChanged onConnectionChanged;
+  OnConnectionChanged? onConnectionChanged;
 
   void discoverServices(String deviceId);
 
-  OnServiceDiscovered onServiceDiscovered;
+  OnServiceDiscovered? onServiceDiscovered;
 
-  Future<void> setNotifiable(String deviceId, String service, String characteristic, BleInputProperty bleInputProperty);
+  void setNotifiable(String deviceId, String service, String characteristic, BleInputProperty bleInputProperty);
 
-  OnValueChanged onValueChanged;
+  OnValueChanged? onValueChanged;
 
-  Future<void> writeValue(String deviceId, String service, String characteristic, Uint8List value, BleOutputProperty bleOutputProperty);
+  void writeValue(String deviceId, String service, String characteristic, Uint8List value, BleOutputProperty bleOutputProperty);
 
   Future<int> requestMtu(String deviceId, int expectedMtu);
 }

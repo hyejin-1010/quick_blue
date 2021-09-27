@@ -1,24 +1,25 @@
 PODS:
-  - FlutterMacOS (1.0.0)
+  - FlutterMacOS (2.5)
   - quick_blue (0.0.1)
   - quick_blue_macos (0.0.1):
     - FlutterMacOS
 
 DEPENDENCIES:
-  - FlutterMacOS (from `Flutter/ephemeral/.symlinks/flutter/darwin-x64`)
   - quick_blue (from `Flutter/ephemeral/.symlinks/plugins/quick_blue/macos`)
   - quick_blue_macos (from `Flutter/ephemeral/.symlinks/plugins/quick_blue_macos/macos`)
 
+SPEC REPOS:
+  trunk:
+    - FlutterMacOS
+
 EXTERNAL SOURCES:
-  FlutterMacOS:
-    :path: Flutter/ephemeral/.symlinks/flutter/darwin-x64
   quick_blue:
     :path: Flutter/ephemeral/.symlinks/plugins/quick_blue/macos
   quick_blue_macos:
     :path: Flutter/ephemeral/.symlinks/plugins/quick_blue_macos/macos
 
 SPEC CHECKSUMS:
-  FlutterMacOS: 15bea8a44d2fa024068daa0140371c020b4b6ff9
+  FlutterMacOS: 078aecd6294d0b7bce11c6dcddcb3e7818567a04
   quick_blue: 7e9360c118bfb7e32884d8379e7a1d7286dc4207
   quick_blue_macos: b7808bfaa3524fbf1edbba0d8b080908299c3541
 

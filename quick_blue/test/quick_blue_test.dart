@@ -17,7 +17,9 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
+  /*
   test('getPlatformVersion', () async {
     expect(await QuickBlue.platformVersion, '42');
   });
+   */
 }

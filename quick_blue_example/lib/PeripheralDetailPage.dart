@@ -35,9 +35,9 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
   @override
   void dispose() {
     super.dispose();
-    QuickBlue.setValueHandler(null);
-    QuickBlue.setServiceHandler(null);
-    QuickBlue.setConnectionHandler(null);
+    QuickBlue.setValueHandler((deviceId, characteristicId, value) { });
+    QuickBlue.setServiceHandler((deviceId, serviceId) { });
+    QuickBlue.setConnectionHandler((deviceId, state) { });
   }
 
   void _handleConnectionChange(String deviceId, BlueConnectionState state) {
