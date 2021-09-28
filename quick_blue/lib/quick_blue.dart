@@ -43,7 +43,7 @@ class QuickBlue {
     QuickBluePlatform.instance.onValueChanged = onValueChanged;
   }
 
-  static void writeValue(String deviceId, String service, String characteristic, Uint8List value, BleOutputProperty bleOutputProperty) {
+  static Future<void> writeValue(String deviceId, String service, String characteristic, Uint8List value, BleOutputProperty bleOutputProperty) {
     return QuickBluePlatform.instance.writeValue(deviceId, service, characteristic, value, bleOutputProperty);
   }
 

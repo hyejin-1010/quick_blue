@@ -16,5 +16,5 @@ A new flutter plugin project.
   s.source_files = 'Classes/**/*'
 
   s.platform = :osx
-  s.osx.deployment_target = '10.11'
+  s.osx.deployment_target = '10.12'
 end

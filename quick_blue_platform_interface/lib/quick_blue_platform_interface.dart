@@ -52,7 +52,7 @@ abstract class QuickBluePlatform extends PlatformInterface {
 
   OnValueChanged? onValueChanged;
 
-  void writeValue(String deviceId, String service, String characteristic, Uint8List value, BleOutputProperty bleOutputProperty);
+  Future<void> writeValue(String deviceId, String service, String characteristic, Uint8List value, BleOutputProperty bleOutputProperty);
 
   Future<int> requestMtu(String deviceId, int expectedMtu);
 }

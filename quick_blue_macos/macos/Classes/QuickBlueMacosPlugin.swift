@@ -64,6 +64,7 @@ public class QuickBlueMacosPlugin: NSObject, FlutterPlugin {
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
     case "isBluetoothAvailable":
+      print("Chloe test manager.state：\(manager.state) \(manager.state == .poweredOn)")
       result(manager.state == .poweredOn)
     case "startScan":
       manager.scanForPeripherals(withServices: nil)
@@ -184,7 +185,7 @@ extension QuickBlueMacosPlugin: FlutterStreamHandler {
     guard let args = arguments as? Dictionary<String, Any>, let name = args["name"] as? String else {
       return nil
     }
-    print("QuickBlueMacosPlugin onListenWithArguments：\(name)")
+    print("QuickBlueMacosPlugin onListenWithArguments @：\(name)")
     if name == "scanResult" {
       scanResultSink = events
     }

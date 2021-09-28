@@ -69,7 +69,7 @@ class MethodChannelQuickBlue extends QuickBluePlatform {
         }
       }
     } else if (message['characteristicValue'] != null) {
-      String deviceId = message['deviceId'];
+      String deviceId = message['deviceId'] ?? '';
       var characteristicValue = message['characteristicValue'];
       String characteristic = characteristicValue['characteristic'];
       Uint8List value = Uint8List.fromList(characteristicValue['value']); // In case of _Uint8ArrayView
@@ -90,7 +90,20 @@ class MethodChannelQuickBlue extends QuickBluePlatform {
   }
 
   @override
-  void writeValue(String deviceId, String service, String characteristic, Uint8List value, BleOutputProperty bleOutputProperty) {
+  Future<void> writeValue(String deviceId, String service, String characteristic, Uint8List value, BleOutputProperty bleOutputProperty) async {
+    try {
+      await _method.invokeMethod('writeValue', {
+        'deviceId': deviceId,
+        'service': service,
+        'characteristic': characteristic,
+        'value': value,
+        'bleOutputProperty': bleOutputProperty.value,
+      });
+      print('writeValue invokeMethod success');
+    } catch (err) {
+      throw err;
+    }
+    /*
     _method.invokeMethod('writeValue', {
       'deviceId': deviceId,
       'service': service,
@@ -103,6 +116,7 @@ class MethodChannelQuickBlue extends QuickBluePlatform {
       // Characteristic sometimes unavailable on Android
       throw onError;
     });
+     */
   }
 
   // FIXME Close
