@@ -8,7 +8,11 @@ class BlueScanResult {
 
   String get macAddress {
     if (num.tryParse(deviceId) != null) {
-      return int.parse(deviceId).toRadixString(16).toUpperCase().replaceAllMapped(RegExp(r".{2}"), (match) => "${match.group(0)}:");
+      String result = int.parse(deviceId).toRadixString(16).toUpperCase().replaceAllMapped(RegExp(r".{2}"), (match) => "${match.group(0)}:");
+      if (result[result.length - 1] == ':') {
+        result = result.substring(0, result.length - 1);
+      }
+      return result;
     }
     return '';
   }
